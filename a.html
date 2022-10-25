@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bt.css">
+</head>
+
+<body>
+   <h1>TIPS :  Xài phím "TAB" để di chuyển vị trí nhanh hơn</h1>
+   <h2>CODE BY MIN DCN</h2>
+    <div class="ptbac1">
+<h2>Phuong trinh bac nhat ax + b = 0 </h2>
+
+<input id="soa" type="text" placeholder="Nhập a"></input>
+    <input id="sob" type="text" placeholder="Nhập b "> 
+    <button onclick="bacnha()">Tính</button></input>
+   <div class="x">
+    <input id="x" type="text" disabled placeholder="X =">
+</div>
+</div>
+<div class="phuongtrinhbac2">
+<h2>  Phuong trinh bac hai ax^2 + bx + c = 0</h2>
+
+<div class="abc">
+<input id="bac2a" type="text " placeholder="Nhập a">
+<input id="bac2b" type="text" placeholder="Nhập b">
+<input id="bac2c" type="text " placeholder="Nhập c">
+<button onclick="bac2()" >Tính</button></div>
+<div class="x1x2">
+<input id="x1" type="text" placeholder="x1 = " disabled>
+<input id="x2" type="text" placeholder="x2 = " disabled>
+</div>
+</div>
+<div class="Giải hệ">
+    <h2>Giải hệ Phương trình {} </h2>
+    <div class="he1">
+     
+    <input id="hea1" type="text " placeholder="Nhập a1">
+    <input id="heb1" type="text" placeholder="Nhập b1">
+    <input id="hec1" type="text " placeholder="Nhập c1">
+</div>
+<div class="he2">
+    <input id="hea2" type="text " placeholder="Nhập a2">
+    <input id="heb2" type="text" placeholder="Nhập b2">
+    <input id="hec2" type="text " placeholder="Nhập c2">
+    <button onclick="giaihe()">Tính</button>
+    </div>
+    <div class="kq">
+    <input type="text" placeholder=" x = " disabled id="Nghx">
+    <input type="text" placeholder=" y = " disabled id="Nghy">
+</div>
+</div>
+<div class="tong">
+    <h2>Tính hết tất cả 1 lần </h2>
+<button id="butto" onclick="alert()">Tính </button>
+</div>
+</body>
+
+<script>
+       
+  function alert(){
+   
+    bacnha(), bac2(),giaihe();
+  }
+    function bacnha(){
+         
+  
+        let b = parseFloat(document.getElementById('sob').value);
+        let a = parseFloat( document.getElementById('soa').value);
+        let x = -b / a ;
+        document.getElementById('x').value  =  "x = ︎ ︎" +  x;
+        // alert("Phương trình bậc nhất có nghiệm là :"  + x )
+    }
+    function bac2(){
+         
+    
+        var a =   parseFloat(document.getElementById('bac2a').value);
+        var b =  parseFloat(document.getElementById('bac2b').value);
+        var c =  parseFloat(document.getElementById('bac2c').value);
+        var x1 = x2 = 0;
+        var Denta = b*b - 4*a*c ;
+    if(Denta >= 0  && a != 0){
+        if(Denta > 0){
+        x1 = (-b + Math.sqrt(Denta)) / 2*a ; 
+        console.log(x1);
+        x2 = (-b - Math.sqrt(Denta)) / 2*a ; 
+        console.log(x2);
+        console.log("Denta", Math.sqrt(Denta))
+        document.getElementById('x1').value = "x1 =  ︎ " + x1;
+        document.getElementById('x2').value = "x2=  ︎ " + x2;
+    }
+    else if(Denta == 0){
+        x1 = x2 = - b / 2*a;
+        document.getElementById('x1').value = "x1 = x2 =  ︎  " + x1;
+        document.getElementById('x2').value = '';
+    }
+} else{
+    document.getElementById('x1').value = "Vô nghiệm";
+    document.getElementById('x2').value = "Vô nghiệm";
+}
+   }
+   function giaihe(){
+     
+
+    var a1 =   parseFloat(document.getElementById('hea1').value);
+        var b1=  parseFloat(document.getElementById('heb1').value);
+        var c1 =  parseFloat(document.getElementById('hec1').value);
+        var a2 =   parseFloat(document.getElementById('hea2').value);
+        var b2 =  parseFloat(document.getElementById('heb2').value);
+        var c2 =  parseFloat(document.getElementById('hec2').value);
+        var d = a1*b2 - a2*b1
+        var dx = c1*b2 - c2*b1;
+        var dy = a1*c2 - a2*c1;
+        
+        if(d == 0){
+            if(dx == dy ){
+                if(dx == 0)
+                document.getElementById('Nghx').value = "Vô số nghiệm";
+                document.getElementById('Nghy').value = "Vô số nghiệm";
+            } else {
+                document.getElementById('Nghx').value = "Vô  nghiệm";
+                document.getElementById('Nghy').value = "Vô  nghiệm";
+            }
+        } else {
+            document.getElementById('Nghx').value = "x =  ︎ ︎ " + (dx / d);
+            document.getElementById('Nghy').value = "y =  ︎ ︎" +  (dy / d);
+        }
+   }
+    
+</script>
+</html>
