@@ -71,7 +71,18 @@
         let b = parseFloat(document.getElementById('sob').value);
         let a = parseFloat( document.getElementById('soa').value);
         let x = -b / a ;
-        document.getElementById('x').value  =  "x = ︎ ︎" +  x;
+        if(a != 0){
+            if(b == 0){
+               
+            document.getElementById('x').value  = "Phương trình vô số nghiệm"
+            } else {       document.getElementById('x').value  =  "x = ︎ ︎" +  x;
+                   }
+                
+        }
+        else{
+                document.getElementById('x').value  = "Phương trình vô nghiệm ";
+        }
+ 
         // alert("Phương trình bậc nhất có nghiệm là :"  + x )
     }
     function bac2(){
